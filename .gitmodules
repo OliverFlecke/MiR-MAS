@@ -1,0 +1,24 @@
+[submodule "MAS.Agents"]
+	path = MAS.Agents
+	url = https://github.com/OliverFlecke/MAS.Agents
+[submodule "MAS.Messaging"]
+	path = MAS.Messaging
+	url = https://github.com/OliverFlecke/MAS.Messaging
+[submodule "MAS.MissionControl"]
+	path = MAS.MissionControl
+	url = https://github.com/OliverFlecke/MAS.MissionControl
+[submodule "MAS.MissionCreator"]
+	path = MAS.MissionCreator
+	url = https://github.com/OliverFlecke/MAS.MissionCreator
+[submodule "MAS.Shared"]
+	path = MAS.Shared
+	url = https://github.com/OliverFlecke/MAS.Shared
+[submodule "MAS.Tests"]
+	path = MAS.Tests
+	url = https://github.com/OliverFlecke/MAS.Tests
+[submodule "MiR-simulator"]
+	path = MiR-simulator
+	url = https://github.com/OliverFlecke/MiR-simulator
+[submodule "docker-rabbitmq-dotnet"]
+	path = docker-rabbitmq-dotnet
+	url = https://github.com/OliverFlecke/docker-rabbitmq-dotnet
