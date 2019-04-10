@@ -1,0 +1,6 @@
+.vs/
+packages/
+
+# Test projects that should not be included
+BasicReceiver/
+BasicSender/

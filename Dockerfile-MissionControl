@@ -1,0 +1,12 @@
+FROM microsoft/dotnet:2.2-sdk-alpine AS builder
+WORKDIR /source
+
+COPY . ./
+RUN dotnet restore MAS.MissionControl/*.csproj
+RUN dotnet publish MAS.MissionControl/*.csproj -c Release -o out
+
+
+FROM microsoft/dotnet:2.2-runtime-alpine
+WORKDIR /app
+COPY --from=builder /source/MAS.MissionControl/out .
+ENTRYPOINT [ "dotnet", "MissionControl.dll" ]
