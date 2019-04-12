@@ -9,5 +9,5 @@ RUN dotnet publish MAS.MissionCreator/*.csproj -c Release -o out
 FROM microsoft/dotnet:2.2-runtime-alpine
 WORKDIR /app
 COPY --from=builder /source/MAS.MissionCreator/out .
-ENTRYPOINT [ "dotnet", "MissionCreator.dll" ]
+ENTRYPOINT [ "dotnet", "MAS.MissionCreator.dll" ]
 
