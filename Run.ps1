@@ -2,7 +2,10 @@ param(
     # The file to launch the simulator with
     [Parameter(Mandatory=$true)]
     [String]
-    $Map
+    $Map,
+    # Parameter help description
+    [switch]
+    $Unity
 )
 
 function Count-Robots([string] $Map)
@@ -12,11 +15,15 @@ function Count-Robots([string] $Map)
     return $Matches.Matches.Count
 }
 
-MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map
+Write-Host "Cleaning up old containers"
+./Clean.ps1
+Write-Host ""
+
+if ($Unity) {
+    MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map
+}
 
 ./Run-RabbitMQ.ps1
-
-./Clean.ps1
 
 Write-Host "Starting mission controller and creator"
 docker run -d --name mission_control --net="host" mission_control
