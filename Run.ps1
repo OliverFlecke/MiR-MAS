@@ -16,7 +16,7 @@ function Count-Robots([string] $Map)
 }
 
 Write-Host "Cleaning up old containers"
-./Clean.ps1
+./Clean.ps1 -Unity=$Unity
 Write-Host ""
 
 if ($Unity) {

@@ -1,4 +1,12 @@
-./MiR-simulator/Stop-Unity.ps1
+param(
+    [switch]
+    $Unity
+)
+
+if ($Unity)
+{
+    ./MiR-simulator/Stop-Unity.ps1
+}
 
 $MissionControl = docker ps --filter name=mission_control -qa
 if ($MissionControl)
