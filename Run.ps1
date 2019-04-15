@@ -3,9 +3,10 @@ param(
     [Parameter(Mandatory=$true)]
     [String]
     $Map,
-    # Parameter help description
     [switch]
-    $Unity
+    $Unity,
+    [switch]
+    $Containers
 )
 
 function Count-Robots([string] $Map)
@@ -32,6 +33,13 @@ docker run -d --name mission_creator --net="host" mission_creator $Map
 $Robots = Count-Robots("./MAS.Shared/maps/$Map")
 for ($i = 0; $i -lt $Robots; $i++) {
     Write-Host "Creating robot $i"
-    docker run -d --name="agent$i" --net="host" agent $Map $i
+    if ($Containers)
+    {
+        docker run -d --name="agent$i" --net="host" agent $Map $i
+    }
+    else
+    {
+        start powershell "dotnet ./MAS.Agents/out/MAS.Agents.dll $Map $i"
+    }
 }
 
