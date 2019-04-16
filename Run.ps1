@@ -8,7 +8,9 @@ param(
     [switch]
     $Containers,
     [string]
-    $Schedule
+    $Schedule,
+    [switch]
+    $NoAgents
 )
 
 function Count-Robots([string] $Map)
@@ -32,16 +34,23 @@ Write-Host "Starting mission controller and creator"
 docker run -d --name mission_control --net="host" mission_control
 docker run -d --name mission_creator --net="host" mission_creator "./maps/$Map" $Schedule
 
-$Robots = Count-Robots("./MAS.Shared/maps/$Map")
-for ($i = 0; $i -lt $Robots; $i++) {
-    Write-Host "Creating robot $i"
-    if ($Containers)
-    {
-        docker run -d --name="agent$i" --net="host" agent $Map $i
-    }
-    else
-    {
-        start powershell "dotnet ./MAS.Agents/out/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
+if ($NoAgents)
+{
+    Write-Host "Skipping agent creation"
+}
+else
+{
+    $Robots = Count-Robots("./MAS.Shared/maps/$Map")
+    for ($i = 0; $i -lt $Robots; $i++) {
+        Write-Host "Creating robot $i"
+        if ($Containers)
+        {
+            docker run -d --name="agent$i" --net="host" agent $Map $i
+        }
+        else
+        {
+            start powershell "dotnet ./MAS.Agents/out/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
+        }
     }
 }
 
