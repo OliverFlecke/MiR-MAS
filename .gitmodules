@@ -22,3 +22,6 @@
 [submodule "docker-rabbitmq-dotnet"]
 	path = docker-rabbitmq-dotnet
 	url = https://github.com/OliverFlecke/docker-rabbitmq-dotnet
+[submodule "MAS.Unpredictable"]
+	path = MAS.Unpredictable
+	url = https://github.com/OliverFlecke/MAS.Unpredictable.git

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAS.MissionControl", "MAS.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAS.MissionCreator", "MAS.MissionCreator\MAS.MissionCreator.csproj", "{B6327475-0364-400D-8EAF-A3959C04283E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAS.Unpredictable", "MAS.Unpredictable\MAS.Unpredictable.csproj", "{7DA81401-8091-453C-AC19-3A1DC734342F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +102,17 @@ Global
 		{B6327475-0364-400D-8EAF-A3959C04283E}.Release|x64.Build.0 = Release|Any CPU
 		{B6327475-0364-400D-8EAF-A3959C04283E}.Release|x86.ActiveCfg = Release|Any CPU
 		{B6327475-0364-400D-8EAF-A3959C04283E}.Release|x86.Build.0 = Release|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Debug|x64.Build.0 = Debug|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Debug|x86.Build.0 = Debug|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Release|x64.ActiveCfg = Release|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Release|x64.Build.0 = Release|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Release|x86.ActiveCfg = Release|Any CPU
+		{7DA81401-8091-453C-AC19-3A1DC734342F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
