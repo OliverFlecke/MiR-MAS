@@ -25,3 +25,6 @@
 [submodule "MAS.Unpredictable"]
 	path = MAS.Unpredictable
 	url = https://github.com/OliverFlecke/MAS.Unpredictable.git
+[submodule "MAS.Missions"]
+	path = MAS.Missions
+	url = https://github.com/OliverFlecke/MAS.Missions.git
