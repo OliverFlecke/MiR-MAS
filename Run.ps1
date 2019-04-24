@@ -49,7 +49,7 @@ else
         }
         else
         {
-            start powershell "dotnet ./MAS.Agents/out/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
+            start powershell "dotnet ./MAS.Agents/bin/Debug/netcoreapp2.2/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
         }
     }
 }
