@@ -28,3 +28,6 @@
 [submodule "MAS.Missions"]
 	path = MAS.Missions
 	url = https://github.com/OliverFlecke/MAS.Missions.git
+[submodule "MAS.Statistics"]
+	path = MAS.Statistics
+	url = https://github.com/OliverFlecke/MAS.Statistics
