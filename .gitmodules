@@ -31,3 +31,6 @@
 [submodule "MAS.Statistics"]
 	path = MAS.Statistics
 	url = https://github.com/OliverFlecke/MAS.Statistics
+[submodule "MAS.MissionScheduler"]
+	path = MAS.MissionScheduler
+	url = https://github.com/OliverFlecke/MAS.MissionScheduler

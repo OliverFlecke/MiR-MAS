@@ -1,0 +1,12 @@
+FROM microsoft/dotnet:2.2-sdk-alpine AS builder
+WORKDIR /source
+
+COPY . ./
+RUN dotnet restore MAS.MissionScheduler/*.csproj
+RUN dotnet publish MAS.MissionScheduler/*.csproj -c Release -o out
+
+
+FROM microsoft/dotnet:2.2-runtime-alpine
+WORKDIR /app
+COPY --from=builder /source/MAS.MissionScheduler/out .
+ENTRYPOINT [ "dotnet", "MAS.MissionScheduler.dll" ]

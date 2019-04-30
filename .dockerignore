@@ -1,9 +1,12 @@
+.git/
 .vs/
 BasicReceiver/
 BasicSender/
 docker-rabbitmq-dotnet/
 
 MiR-simulator/
+
+logs/
 
 **/bin/
 **/out/
