@@ -1,0 +1,12 @@
+.vs/
+BasicReceiver/
+BasicSender/
+docker-rabbitmq-dotnet/
+
+MiR-simulator/
+
+**/bin/
+**/out/
+**/obj/
+**/Properties/
+**/.gitignore

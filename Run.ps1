@@ -7,6 +7,8 @@ param(
     $Unity,
     [switch]
     $Containers,
+    [switch]
+    $NoMissionContainers,
     [string]
     $Schedule,
     [switch]
@@ -31,8 +33,18 @@ if ($Unity) {
 ./Run-RabbitMQ.ps1
 
 Write-Host "Starting mission controller and creator"
-docker run -d --name mission_control --net="host" mission_control
-docker run -d --name mission_creator --net="host" mission_creator "./maps/$Map" $Schedule
+if ($NoMissionContainers)
+{
+    start powershell "dotnet ./MAS.MissionControl/bin/Debug/netcoreapp2.2/MAS.MissionControl.dll"
+    start powershell "dotnet ./MAS.MissionCreator/bin/Debug/netcoreapp2.2/MAS.MissionCreator.dll ./MAS.Shared/maps/$Map ./MAS.MissionCreator/$Schedule"
+}
+else
+{
+    docker run -d --name mission_control --net="host" mission_control
+    docker run -d --name mission_creator --net="host" mission_creator "./maps/$Map" $Schedule
+}
+
+start powershell "dotnet ./MAS.Statistics/bin/Debug/netcoreapp2.2/MAS.Statistics.dll ./MAS.Shared/maps/$Map"
 
 if ($NoAgents)
 {
