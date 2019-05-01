@@ -34,3 +34,6 @@
 [submodule "MAS.MissionScheduler"]
 	path = MAS.MissionScheduler
 	url = https://github.com/OliverFlecke/MAS.MissionScheduler
+[submodule "MAS.Command"]
+	path = MAS.Command
+	url = https://github.com/OliverFlecke/MAS.Command
