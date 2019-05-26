@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAS.MissionScheduler", "MAS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAS.Command", "MAS.Command\MAS.Command.csproj", "{7130593A-EE76-41B0-9989-AE18AC18BA5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAS.CentralizedAgents", "MAS.CentralizedAgents\MAS.CentralizedAgents.csproj", "{E8A0C690-8A05-4016-8367-1B2D6C4DC992}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,5 +172,17 @@ Global
 		{7130593A-EE76-41B0-9989-AE18AC18BA5C}.Release|x64.Build.0 = Release|Any CPU
 		{7130593A-EE76-41B0-9989-AE18AC18BA5C}.Release|x86.ActiveCfg = Release|Any CPU
 		{7130593A-EE76-41B0-9989-AE18AC18BA5C}.Release|x86.Build.0 = Release|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Debug|x64.Build.0 = Debug|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Debug|x86.Build.0 = Debug|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Release|x64.ActiveCfg = Release|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Release|x64.Build.0 = Release|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Release|x86.ActiveCfg = Release|Any CPU
+		{E8A0C690-8A05-4016-8367-1B2D6C4DC992}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -37,3 +37,6 @@
 [submodule "MAS.Command"]
 	path = MAS.Command
 	url = https://github.com/OliverFlecke/MAS.Command
+[submodule "MAS.CentralizedAgents"]
+	path = MAS.CentralizedAgents
+	url = https://github.com/OliverFlecke/MAS.CentralizedAgents

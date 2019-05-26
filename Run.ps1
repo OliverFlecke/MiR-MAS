@@ -12,7 +12,9 @@ param(
     [string]
     $Schedule,
     [switch]
-    $NoAgents
+    $NoAgents,
+    [switch]
+    $Centralized
 )
 
 function Count-Robots([string] $Map)
@@ -64,6 +66,10 @@ else
 if ($NoAgents)
 {
     Write-Host "Skipping agent creation"
+}
+elseif ($Centralized)
+{
+    start powershell "dotnet ./MAS.CentralizedAgents/bin/Debug/netcoreapp2.2/MAS.CentralizedAgents.dll ./MAS.Shared/maps/$Map"
 }
 else
 {
