@@ -14,7 +14,10 @@ param(
     [switch]
     $NoAgents,
     [switch]
-    $Centralized
+    $Centralized,
+    [String]
+    [ValidateSet('3.0', '2.2')]
+    $DotnetVersion = '3.0'
 )
 
 function Count-Robots([string] $Map)
@@ -33,20 +36,20 @@ if ($Unity) {
 }
 
 ./Run-RabbitMQ.ps1
-start powershell "dotnet ./MAS.Statistics/bin/Debug/netcoreapp2.2/MAS.Statistics.dll ./MAS.Shared/maps/$Map"
+start powershell "dotnet ./MAS.Statistics/bin/Debug/netcoreapp$DotnetVersion/MAS.Statistics.dll ./MAS.Shared/maps/$Map"
 
 Write-Host "Starting mission controller and creator"
 if ($NoMissionContainers)
 {
-    start powershell "dotnet ./MAS.MissionControl/bin/Debug/netcoreapp2.2/MAS.MissionControl.dll"
+    start powershell "dotnet ./MAS.MissionControl/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionControl.dll"
 
     if ($Schedule)
     {
-        start powershell "dotnet ./MAS.MissionScheduler/bin/Debug/netcoreapp2.2/MAS.MissionScheduler.dll ./MAS.MissionScheduler/$Schedule"
+        start powershell "dotnet ./MAS.MissionScheduler/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionScheduler.dll ./MAS.MissionScheduler/$Schedule"
     }
     else
     {
-        start powershell "dotnet ./MAS.MissionCreator/bin/Debug/netcoreapp2.2/MAS.MissionCreator.dll ./MAS.Shared/maps/$Map"
+        start powershell "dotnet ./MAS.MissionCreator/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionCreator.dll ./MAS.Shared/maps/$Map"
     }
 }
 else
@@ -69,7 +72,7 @@ if ($NoAgents)
 }
 elseif ($Centralized)
 {
-    start powershell "dotnet ./MAS.CentralizedAgents/bin/Debug/netcoreapp2.2/MAS.CentralizedAgents.dll ./MAS.Shared/maps/$Map"
+    start powershell "dotnet ./MAS.CentralizedAgents/bin/Debug/netcoreapp$DotnetVersion/MAS.CentralizedAgents.dll ./MAS.Shared/maps/$Map"
 }
 else
 {
@@ -82,7 +85,7 @@ else
         }
         else
         {
-            start powershell "dotnet ./MAS.Agents/bin/Debug/netcoreapp2.2/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
+            start powershell "dotnet ./MAS.Agents/bin/Debug/netcoreapp$DotnetVersion/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
         }
     }
 }
