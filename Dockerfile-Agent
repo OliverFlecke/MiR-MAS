@@ -1,11 +1,11 @@
-FROM microsoft/dotnet:2.2-sdk-alpine AS builder
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS builder
 WORKDIR /source
 
 COPY . ./
 RUN dotnet restore MAS.Agents/*.csproj
 RUN dotnet publish MAS.Agents/*.csproj -c Release -o out
 
-FROM microsoft/dotnet:2.2-runtime-alpine
+FROM mcr.microsoft.com/dotnet/core/runtime:3.0-alpine
 WORKDIR /app
-COPY --from=builder /source/MAS.Agents/out .
+COPY --from=builder /source/out .
 ENTRYPOINT [ "dotnet", "MAS.Agents.dll" ]
