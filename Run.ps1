@@ -72,6 +72,7 @@ else
     }
 }
 
+Start-Sleep -Seconds 2
 if ($NoMissionContainers)
 {
     if ($Schedule)
