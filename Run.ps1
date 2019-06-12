@@ -48,29 +48,6 @@ else
     docker run -d --name mission_control --net="host" mission_control
 }
 
-if ($NoMissionContainers)
-{
-    if ($Schedule)
-    {
-        start powershell "dotnet ./MAS.MissionScheduler/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionScheduler.dll ./MAS.MissionScheduler/$Schedule"
-    }
-    else
-    {
-        start powershell "dotnet ./MAS.MissionCreator/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionCreator.dll ./MAS.Shared/maps/$Map"
-    }
-}
-else
-{
-    if ($Schedule)
-    {
-        docker run -d --name mission_scheduler --net="host" mission_scheduler $Schedule
-    }
-    else
-    {
-        docker run -d --name mission_creator --net="host" mission_creator "./maps/$Map" $Schedule
-    }
-}
-
 if ($NoAgents)
 {
     Write-Host "Skipping agent creation"
@@ -92,5 +69,28 @@ else
         {
             start powershell "dotnet ./MAS.Agents/bin/Debug/netcoreapp$DotnetVersion/MAS.Agents.dll ./MAS.Shared/maps/$Map $i"
         }
+    }
+}
+
+if ($NoMissionContainers)
+{
+    if ($Schedule)
+    {
+        start powershell "dotnet ./MAS.MissionScheduler/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionScheduler.dll ./MAS.MissionScheduler/$Schedule"
+    }
+    else
+    {
+        start powershell "dotnet ./MAS.MissionCreator/bin/Debug/netcoreapp$DotnetVersion/MAS.MissionCreator.dll ./MAS.Shared/maps/$Map"
+    }
+}
+else
+{
+    if ($Schedule)
+    {
+        docker run -d --name mission_scheduler --net="host" mission_scheduler $Schedule
+    }
+    else
+    {
+        docker run -d --name mission_creator --net="host" mission_creator "./maps/$Map" $Schedule
     }
 }
