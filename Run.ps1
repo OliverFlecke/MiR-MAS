@@ -6,6 +6,8 @@ param(
     [switch]
     $Unity,
     [switch]
+    $Batchmode,
+    [switch]
     $Containers,
     [switch]
     $NoMissionContainers,
@@ -25,7 +27,7 @@ Write-Host "Cleaning up old containers"
 Write-Host ""
 
 if ($Unity) {
-    MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map
+    ./Run-Unity -Map $Map -Batchmode:$Batchmode
 }
 
 ./Run-RabbitMQ.ps1
@@ -41,5 +43,4 @@ else
     ./Run-Agents.ps1 -Map $Map -Containers:$Containers -Centralized:$Centralized -DotnetVersion $DotnetVersion
 }
 
-Start-Sleep -Seconds 2
 ./Run-MissionCreator.ps1 -Map $Map -Containers:$Containers -Schedule $Schedule -DotnetVersion $DotnetVersion

@@ -12,6 +12,7 @@ param(
     $DotnetVersion = '3.0'
 )
 
+./Run-Statistics.ps1 -Map $Map -DotnetVersion $DotnetVersion
 ./Run-Agents.ps1 -Map $Map -Containers:$Containers -Centralized:$Centralized -DotnetVersion $DotnetVersion
 ./Run-MissionControl.ps1 -Containers:$Containers -DotnetVersion $DotnetVersion
 
