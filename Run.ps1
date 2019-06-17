@@ -19,6 +19,8 @@ param(
     $Centralized,
     [switch]
     $CanUseSameSpace,
+    [switch]
+    $Ready,
     [String]
     [ValidateSet('3.0', '2.2')]
     $DotnetVersion = '3.0'
@@ -45,4 +47,4 @@ else
     ./Run-Agents.ps1 -Map $Map -Containers:$Containers -Centralized:$Centralized -DotnetVersion $DotnetVersion -CanUseSameSpace:$CanUseSameSpace
 }
 
-./Run-MissionCreator.ps1 -Map $Map -Containers:$Containers -Schedule $Schedule -DotnetVersion $DotnetVersion
+./Run-MissionCreator.ps1 -Map $Map -Containers:$Containers -Schedule $Schedule -DotnetVersion $DotnetVersion -Ready:$Ready
