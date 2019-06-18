@@ -27,7 +27,7 @@ param(
 )
 
 Write-Host "Cleaning up old containers"
-./Clean.ps1 -Unity=$Unity
+./Clean.ps1 -Unity=$Unity -CanUseSameSpace:$CanUseSameSpace
 Write-Host ""
 
 if ($Unity) {
