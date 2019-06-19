@@ -1,6 +1,7 @@
 .vs/
 packages/
 logs/
+missions/
 
 # Test projects that should not be included
 BasicReceiver/
