@@ -7,7 +7,7 @@ param(
     $Containers,
     [string]
     $Schedule,
-    [string]
+    [switch]
     $Ready,
     [String]
     [ValidateSet('3.0', '2.2')]
