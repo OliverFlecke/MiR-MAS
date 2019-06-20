@@ -27,11 +27,11 @@ param(
 )
 
 Write-Host "Cleaning up old containers"
-./Clean.ps1 -Unity=$Unity -CanUseSameSpace:$CanUseSameSpace
+./Clean.ps1 -Unity=$Unity
 Write-Host ""
 
 if ($Unity) {
-    ./Run-Unity -Map $Map -Batchmode:$Batchmode
+    ./Run-Unity -Map $Map -Batchmode:$Batchmode -CanUseSameSpace:$CanUseSameSpace
 }
 
 ./Run-RabbitMQ.ps1

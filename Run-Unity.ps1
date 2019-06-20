@@ -11,13 +11,11 @@ param(
 
 ./MiR-simulator/Stop-Unity.ps1
 
-$Args = if ($CanUseSameSpace) {"-CanUseSameSpace"} else {""}
-
 if ($Batchmode)
 {
-    ./MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map -batchmode $Args
+    ./MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map space $CanUseSameSpace -batchmode
 }
 else
 {
-    ./MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map $Args
+    ./MiR-Simulator/build/MiR-Simulator map ./MAS.Shared/maps/$Map space $CanUseSameSpace
 }
