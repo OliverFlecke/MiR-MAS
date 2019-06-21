@@ -9,6 +9,8 @@ param(
     $Centralized,
     [switch]
     $CanUseSameSpace,
+    [int]
+    $Penalty = 1,
     [String]
     [ValidateSet('3.0', '2.2')]
     $DotnetVersion = '3.0'
@@ -25,7 +27,7 @@ $Args = if ($CanUseSameSpace) {"-CanUseSameSpace"} else {""}
 
 if ($Centralized)
 {
-    start powershell "dotnet ./MAS.CentralizedAgents/bin/Debug/netcoreapp$DotnetVersion/MAS.CentralizedAgents.dll ./MAS.Shared/maps/$Map $Args"
+    start powershell "dotnet ./MAS.CentralizedAgents/bin/Debug/netcoreapp$DotnetVersion/MAS.CentralizedAgents.dll ./MAS.Shared/maps/$Map penalty $Penalty $Args"
 }
 else
 {
@@ -34,11 +36,11 @@ else
         Write-Host "Creating robot $i"
         if ($Containers)
         {
-            docker run -d --name="agent$i" --net="host" agent $Map $i $Args
+            docker run -d --name="agent$i" --net="host" agent $Map $i penalty $Penalty $Args
         }
         else
         {
-            start powershell "dotnet ./MAS.Agents/bin/Debug/netcoreapp$DotnetVersion/MAS.Agents.dll ./MAS.Shared/maps/$Map $i $Args"
+            start powershell "dotnet ./MAS.Agents/bin/Debug/netcoreapp$DotnetVersion/MAS.Agents.dll ./MAS.Shared/maps/$Map $i penalty $Penalty $Args"
         }
     }
 }
